@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	#wrap {width: 850px; height: 600px; }
+	#basic.dark {width: 100%; height: 100%;background-color: black; opacity:0.2;}
+	#smallImg img{height: 50px;}
+	#bigImg{display:none; position: absolute;height: 400px; width: 600px; border: 5px solid gold; margin-left: 200px; text-align: center; background-color: gray; top:150px; }
+	#bigImg.block{display:block;}
+	#bigImg hr{height: 2px; background-color: white;}
+	#bigImg h3{color:gold}
+	#bigImg img{height: 300px;}
+	#text{display: flex; width: 100%; justify-content:center; color: white;}
+	.div_x{font-size: 20px; width: 30px; height: 30px; position:absolute; margin-left: 570px;}
+	.div_x:hover{background-color: #D5D5D5;}
+</style>
+<script type="text/javascript">
+	function init() {
+		let car1 = document.getElementById('car1')
+		let car2 = document.getElementById('car2')
+		let car3 = document.getElementById('car3')
+		car1.addEventListener('click',img_listener)
+		car2.addEventListener('click',img_listener)
+		car3.addEventListener('click',img_listener)
+	}
+	var flag = true;
+	
+	function img_listener() {
+		let car = document.getElementById('carImg')
+		let bigImg = document.getElementById('bigImg')
+		let basic = document.getElementById('basic')
+		//console.log(event.target.id)
+		switch(event.target.id){
+		case "car1" : 
+			car.src="resources/images/car01.png"
+			bigImg.setAttribute('class','block')
+			basic.setAttribute('class','dark')
+			break;
+		case "car2" : 
+			car.src="resources/images/car02.png"
+			bigImg.setAttribute('class','block')
+			basic.setAttribute('class','dark')
+			break;
+		case "car3" :
+			car.src="resources/images/car03.png"
+			bigImg.setAttribute('class','block')
+			basic.setAttribute('class','dark')
+			break;
+		}
+	}
+	
+	function imgClose(){
+		let bigImg = document.getElementById('bigImg')
+		let basic = document.getElementById('basic')
+    	bigImg.removeAttribute('class')
+		basic.removeAttribute('class');
+	}
+</script>
+</head>
+<body onload="init()">
+<div id="wrap">
+	<div id="basic">
+		<h1>light box</h1>
+		<div id="smallImg">
+			<img id="car1" src="resources/images/car01.png">
+			<img id="car2" src="resources/images/car02.png">
+			<img id="car3" src="resources/images/car03.png">
+		</div>
+	</div>
+	<div id="bigImg">
+		<div id="text">
+			<h3>2 0 1 9 &nbsp;Super_Car</h3>
+			<div class="div_x" onclick="imgClose()"><b>x</b></div>
+		</div>
+		<hr>
+		<img id="carImg" src="resources/images/car01.png">
+	</div>
+</div>
+</body>
+</html>

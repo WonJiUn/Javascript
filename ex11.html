@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function myClick() {
+		//window.open("https://www.naver.com", "_self");
+		//새창띄우기(경로, 자기자신의 창을 경로로 바꿈)
+		//둘다 없으면 빈창이 열림
+		window.open("popup.html", "", "width=500, height=500");
+	}
+	function test() {
+		//무언가 연산을 함-> 버튼을 눌렀을때 값을 넘겨줘야하면 넘겨주고 아니면 포커스나 얼럿 등 표현
+		fo.submit()
+	}
+	function btnMove() {
+		location.href='ex10.html'
+		//form태그 이동과의 차이점 : 입력한 값을 다음페이지로 넘겨줄수 있는가?
+	}
+	
+</script>
+</head>
+<body>
+	<button type="button" onclick="btnMove()">함수이동</button>
+	<button type="button" onclick="location.href='ex10.html'">이동</button>
+	<!-- a href 방식이 아니라 버튼을 눌렀을때 다른 페이지로 이동시키고 싶을때 -->
+<hr>
+	<form id="fo" action="ex10.html">
+		<input type="text" name="name"><br>
+		<input type="text" name="age"><br>
+		<input type="submit" value="submit">
+		<input type="button" value="button" onclick="test()">
+		<button type="button" onclick="btnMove()">함수이동</button>
+	</form>
+<hr>
+	<input type="button" onclick="myClick()" value="클릭">
+</body>
+</html>

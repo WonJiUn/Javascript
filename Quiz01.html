@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Quiz01</title>
+<script type="text/javascript">
+	
+	var num = 1;
+	function previous() {
+		if(num != 1){
+			document.getElementById('img').src='resources/images/최근상품0' + (num-1) + '.jpg'
+			num = (num-1);
+		}else{
+			document.getElementById('img').src='resources/images/최근상품08.jpg'
+			num = 8;
+		}
+	}
+	function next() {
+		if(num != 8){
+			document.getElementById('img').src='resources/images/최근상품0' + (num+1) + '.jpg'
+			num = (num+1);
+		}else{
+			document.getElementById('img').src='resources/images/최근상품01.jpg'
+			num = 1;
+		}
+	}
+
+
+</script>
+<style type="text/css">
+	#wrap{width: 500px; height: 550px; margin: auto; background-color: pink}
+	#img{width: 500px; height: 500px;}
+	.btn{text-align: center;}
+</style>
+</head>
+<body>
+<div id="wrap">
+	<img id = 'img' src="resources/images/최근상품01.jpg">
+		<div class="btn">
+		<button type="button" onclick="previous()">이전사진</button>
+		<button type="button" onclick="next()">다음사진</button>
+		</div>
+</div>
+</body>
+</html>

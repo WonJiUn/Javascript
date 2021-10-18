@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Quiz03</title>
+<style type="text/css">
+	#wrap{margin:auto; width: 600px;}
+	img{width:100px; height:100px;}
+	h3{background-color: red; text-align: center}
+	table{text-align: center;}
+	.list{position:fixed; right: 30px; top: 10px; width: 100px;}
+</style>
+
+<script type="text/javascript">
+	var arr=[];
+	const imgSize=5;
+	
+	function getImgAddr(name) {
+		if(arr.length == 0){
+			list()
+		}
+		
+		arr.push(name); //배열의 마지막에 값이 추가됨
+		rp2 = document.getElementById("rp2") //rp2의 아이디값으로 정보를 얻어옴
+		
+			if(arr.length <= imgSize){
+				var img = document.createElement('img') //<img></img> 생성
+				img.src="resources/images/"+name+".jpg"; //img변수에 src속성 추가
+				rp2.appendChild(img) //rp2 영역에 원래 있던 태그는 그대로 두고 이미지 추가(innerHTML은 기존 내용을 지우고 덮어쓰는 느낌)
+			}else{
+				rp2.innerHTML="" //rp2에 원래 있던 내용을 ""(공백)으로 대체함
+				arr.shift(); //배열의 제일 앞에있는 값을 하나 제거
+				for(i=0; i<arr.length; i++){
+					var img = document.createElement('img')
+					img.src="resources/images/"+arr[i]+".jpg";
+					//document.getElementById("rp2").appendChild(img)
+					rp2.appendChild(img)
+				}
+			}
+	}
+	
+	function list() {
+		ls= document.getElementById("ls")
+		ls.innerHTML="최근 구경한 상품"
+		ls.style.background="green"
+	}
+
+
+</script>
+
+</head>
+<body>
+<div id="wrap">
+	<table border="1">
+		<tr>
+			<td><a href="#" onclick="getImgAddr('최근상품01')"><img src="resources/images/최근상품01.jpg"></a></td>
+			<td><a href="#" onclick="getImgAddr('최근상품02')"><img src="resources/images/최근상품02.jpg"></a></td>
+			<td><a href="#" onclick="getImgAddr('최근상품03')"><img src="resources/images/최근상품03.jpg"></a></td>
+			<td><a href="#" onclick="getImgAddr('최근상품04')"><img src="resources/images/최근상품04.jpg"></a></td>
+		</tr>
+		<tr>
+			<td><a href="#" onclick="getImgAddr('최근상품05')"><img src="resources/images/최근상품05.jpg"></a></td>
+			<td><a href="#" onclick="getImgAddr('최근상품06')"><img src="resources/images/최근상품06.jpg"></a></td>
+			<td><a href="#" onclick="getImgAddr('최근상품07')"><img src="resources/images/최근상품07.jpg"></a></td>
+			<td><a href="#" onclick="getImgAddr('최근상품08')"><img src="resources/images/최근상품08.jpg"></a></td>
+		</tr>
+	</table>
+	
+	<div class="list">
+		
+		<h3 id="ls">목록이<br>없습니다</h3>
+		<div id="rp2"></div>
+	</div>
+</div>
+</body>
+</html>

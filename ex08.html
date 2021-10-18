@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var img
+	function add() {
+		img = document.createElement("img")
+		img.setAttribute("src", "img.jpg")
+		//img.src="img.jpg"
+		//img.width= 100
+		//img.style.height="100px"
+		img.id = "img"
+		img.setAttribute('class','img2')
+		//어떤 방식으로 해도 상관없다
+		
+		//document.body.appendChild(img)
+		//html의 body에 추가
+		
+		document.getElementById('test').appendChild(img)
+	}
+	
+	function remove() {
+		//document.body.removeChild(img) //첫번째꺼만 삭제가 됨
+		//document.getElementById('test').removeChild(img)
+		document.getElementById('test').innerHTML = 'test' //전부삭제
+	}
+</script>
+<style type="text/css">
+	#img{width:50px;}
+	.img2{height: 50px}
+</style>
+</head>
+<body>
+	<p id="test">test</p>
+	<a href="#" onclick="add()">[이미지 추가]</a>
+	<a href="#" onclick="remove()">[이미지 삭제]</a>
+
+</body>
+</html>

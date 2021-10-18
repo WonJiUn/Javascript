@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	#wrap{display:flex;}
+	#img{width: 500px; height: 500px;}
+</style>
+</head>
+<body onload="nextImg()">
+<div id="wrap">
+	<button type="button" onclick="previous()">이전</button>
+	
+	<img id = 'img' onmouseover="over(this)" onmouseout="out()" src="resources/images/최근상품01.jpg">
+	
+	<button type="button" onclick="next()">다음</button>
+</div>	
+
+
+	<script type="text/javascript">
+	var num = 8;
+	var e;
+	var bool = true;
+	function nextImg() {
+		if(num != 8){
+			num++;
+		}else{
+			num = 1;
+		}
+		if(bool){
+			document.getElementById('img').src='resources/images/최근상품0' + num + '.jpg'
+		}else{
+			bool = !bool
+		}
+		//마우스를 넣었다 뺐다 하면 이미지가 1초 대기없이 계속 바뀌는것을 처리해주기 위한 코드
+		e = setTimeout('nextImg()',1000)
+	}
+	
+	function over(obj){
+		clearTimeout(e)
+		bool = false
+	}
+	function out(){
+		nextImg();
+	}
+	function previous(){
+		if(num != 1){
+			num--;
+		}else{
+			num = 8;
+		}
+		document.getElementById('img').src='resources/images/최근상품0' + num + '.jpg'
+	}
+	function next(){
+		if(num != 8){
+			num++;
+		}else{
+			num = 1;
+		}
+		document.getElementById('img').src='resources/images/최근상품0' + num + '.jpg'
+	}
+	</script>
+
+</body>
+</html>
